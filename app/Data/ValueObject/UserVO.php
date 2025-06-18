@@ -3,8 +3,8 @@
 namespace App\Data\ValueObject;
 
 use App\Traits\FilterArrayTrait;
-use Illuminate\Support\Arr;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
 
 class UserVO implements Arrayable
 {
@@ -25,6 +25,7 @@ class UserVO implements Arrayable
         public string $number_passport,
 
         public ?string $comment,
+        public ?bool $status,
 
     ){ }
 
@@ -42,7 +43,8 @@ class UserVO implements Arrayable
         string $series_passport,
         string $number_passport,
 
-        string $comment,
+        ?string $comment = null,
+        ?bool $status = false,
 
     ) : static {
 
@@ -56,6 +58,7 @@ class UserVO implements Arrayable
             series_passport: $series_passport,
             number_passport: $number_passport,
             comment: $comment,
+            status: $status,
         );
 
     }
@@ -72,6 +75,7 @@ class UserVO implements Arrayable
             "series_passport" => $this->series_passport,
             "number_passport" => $this->number_passport,
             "comment" => $this->comment,
+            "status" => $this->status,
         ];
     }
 
@@ -87,6 +91,7 @@ class UserVO implements Arrayable
             series_passport: Arr::get($data, 'series_passport'),
             number_passport: Arr::get($data, 'number_passport'),
             comment: Arr::get($data, 'comment', null),
+            status: Arr::get($data, 'comment', false),
         );
     }
 }

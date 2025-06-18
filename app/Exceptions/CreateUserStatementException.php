@@ -6,5 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CreateUserStatementException extends Exception { }
+class CreateUserStatementException extends Exception {
+
+}
 

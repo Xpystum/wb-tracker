@@ -99,6 +99,11 @@ return [
 
     ],
 
+    'sms_aero' => [
+        'email' => env('SMS_AERO_EMAIL'),
+        'api' => env('SMS_AERO_API'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address

@@ -29,6 +29,8 @@ return new class extends Migration
 
             $table->string('comment')->comment('комментарий к заявление на возмещение');
 
+            $table->boolean('status')->default(false)->comment('Статус активации');
+
             $table->rememberToken();
             $table->timestamps();
         });
