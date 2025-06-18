@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Casts\RuDateTimeCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $track_number трек номера посылки
@@ -81,5 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CodeSms::class, 'user_id', 'id');
     }
+
+    protected $casts = [
+        'birthday' => RuDateTimeCast::class,
+    ];
 
 }
